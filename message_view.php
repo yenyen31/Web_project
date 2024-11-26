@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>PHP 프로그래밍 입문</title>
+	<title>소원 우체국 Wish Post Office</title>
 	<link rel="stylesheet" type="text/css" href="./css/common.css">
 	<link rel="stylesheet" type="text/css" href="./css/message.css">
 </head>

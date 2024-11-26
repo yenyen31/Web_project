@@ -64,7 +64,7 @@
 				?>
 			</ul>
 			<h3 id="member_title">
-				관리자 모드 > 게시판 관리
+				관리자 모드 > 소원 게시판 관리
 			</h3>
 			<ul id="board_list">
 				<li class="title">
@@ -104,7 +104,7 @@
 					}
 					mysqli_close($con);
 					?>
-					<button type="submit">선택된 글 삭제</button>
+					<button type="submit">선택한 소원 삭제</button>
 				</form>
 			</ul>
 		</div> <!-- admin_box -->

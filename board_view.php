@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>PHP 프로그래밍 입문</title>
+	<title>소원 우체국 Wish Post Office</title>
 	<link rel="stylesheet" type="text/css" href="./css/common.css">
 	<link rel="stylesheet" type="text/css" href="./css/board.css">
 </head>
@@ -18,7 +18,7 @@
 		</div>
 		<div id="board_box">
 			<h3 class="title">
-				게시판 > 내용보기
+				소원 게시판 > 소원 보기
 			</h3>
 			<?php
 			$num  = $_GET["num"];
@@ -69,7 +69,7 @@
 				<li><button onclick="location.href='board_list.php?page=<?= $page ?>'">목록</button></li>
 				<li><button onclick="location.href='board_modify_form.php?num=<?= $num ?>&page=<?= $page ?>'">수정</button></li>
 				<li><button onclick="location.href='board_delete.php?num=<?= $num ?>&page=<?= $page ?>'">삭제</button></li>
-				<li><button onclick="location.href='board_form.php'">글쓰기</button></li>
+				<li><button onclick="location.href='board_form.php'">소원 쓰기</button></li>
 			</ul>
 		</div> <!-- board_box -->
 	</section>

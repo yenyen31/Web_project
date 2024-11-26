@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>PHP 프로그래밍 입문</title>
+	<title>소원 우체국 Wish Post Office</title>
 	<link rel="stylesheet" type="text/css" href="./css/common.css">
 	<link rel="stylesheet" type="text/css" href="./css/board.css">
 </head>
@@ -18,7 +18,7 @@
 		</div>
 		<div id="board_box">
 			<h3>
-				게시판 > 목록보기
+				소원 게시판 > 소원 목록 보기
 			</h3>
 			<ul id="board_list">
 				<li>
@@ -114,11 +114,11 @@
 					<?php
 					if ($userid) {
 					?>
-						<button onclick="location.href='board_form.php'">글쓰기</button>
+						<button onclick="location.href='board_form.php'">소원 쓰기</button>
 					<?php
 					} else {
 					?>
-						<a href="javascript:alert('로그인 후 이용해 주세요!')"><button>글쓰기</button></a>
+						<a href="javascript:alert('로그인 후 이용해 주세요!')"><button>소원 쓰기</button></a>
 					<?php
 					}
 					?>

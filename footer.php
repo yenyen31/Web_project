@@ -1,12 +1,13 @@
         <div id="footer_content">
-            <p id="footer_logo">PHP 프로그래밍 입문 | <span>한빛 아카데미</span></p>
+            <p id="footer_logo">웹프로그래밍 | <span>2021111402 이예은</span></p>
             <ul id="download">
-                <li>예제 소스 다운로드</li>
+                <!--    <li>예제 소스 다운로드</li>
                 <li>- 한빛 아카데미(http://hanbit.co.kr)</li>
                 <li>- 코딩스쿨(http://codingschool.info)</li>
+                -->
             </ul>
             <ul id="author">
-                <li>저자 문의 메일</li>
-                <li>- 메일 주소 : goldmont@naver.com</li>
+                <li>문의 메일</li>
+                <li>- 메일 주소 : totoro08285@naver.com</li>
             </ul>
         </div>

@@ -11,24 +11,24 @@ else $userpoint = "";
 ?>
 <div id="top">
     <h3>
-        <a href="index.php">PHP 프로그래밍 입문</a>
+        <a href="index.php">소원 우체국 Wish Post Office</a>
     </h3>
     <ul id="top_menu">
         <?php
         if (!$userid) {
         ?>
-            <li><a href="member_form.php">회원가입(11장)</a> </li>
+            <li><a href="member_form.php">Join</a> </li> <!-- 회원가입 -->
             <li> | </li>
-            <li><a href="login_form.php">로그인(12장)</a></li>
+            <li><a href="login_form.php">Login</a></li> <!-- 로그인 -->
         <?php
         } else {
             $logged = $username . "(" . $userid . ")님[Level:" . $userlevel . ", Point:" . $userpoint . "]";
         ?>
             <li><?= $logged ?> </li>
             <li> | </li>
-            <li><a href="logout.php">로그아웃(12장)</a> </li>
+            <li><a href="logout.php"> Logout </a> </li> <!-- 로그아웃 -->
             <li> | </li>
-            <li><a href="member_modify_form.php">정보수정(12장)</a></li>
+            <li><a href="member_modify_form.php"> my page </a></li> <!-- 정보수정 -->
         <?php
         }
         ?>
@@ -36,7 +36,7 @@ else $userpoint = "";
         if ($userlevel == 1) {
         ?>
             <li> | </li>
-            <li><a href="admin.php">관리자모드(15장)</a></li>
+            <li><a href="admin.php">Admin mode</a></li> <!-- 관리자모드 -->
         <?php
         }
         ?>
@@ -44,9 +44,9 @@ else $userpoint = "";
 </div>
 <div id="menu_bar">
     <ul>
-        <li><a href="index.php">HOME</a></li>
-        <li><a href="message_form.php">쪽지 만들기(13장)</a></li>
-        <li><a href="board_form.php">게시판 만들기(14장)</a></li>
-        <li><a href="index.php">사이트 완성하기(15장)</a></li>
+        <li><a href="index.php">HOME</a></li> <!-- 홈 -->
+        <li><a href="message_form.php">쪽지 보내기</a></li> <!-- 쪽지 만들기 -->
+        <li><a href="board_form.php">소원 쓰기</a></li> <!-- 게시판 만들기 -->
+        <li><a href="index.php">사이트 완성하기</a></li> <!-- 사이트 완성하기 -->
     </ul>
 </div>

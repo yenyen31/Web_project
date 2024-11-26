@@ -9,7 +9,7 @@ else $username = "";
 if (!$userid) {
 	echo ("
                     <script>
-                    alert('게시판 글쓰기는 로그인 후 이용해 주세요!');
+                    alert('소원 쓰기는 로그인 후 이용해 주세요!');
                     history.go(-1)
                     </script>
         ");

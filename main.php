@@ -1,9 +1,9 @@
         <div id="main_img_bar">
-            <img src="./img/main_img.png">
+            <img src="./img/main_img.pngg">
         </div>
         <div id="main_content">
             <div id="latest">
-                <h4>최근 게시글(15장)</h4>
+                <h4>최근 소원 목록</h4> <!-- 최근 게시 글-->
                 <ul>
                     <!-- 최근 게시 글 DB에서 불러오기 -->
                     <?php
@@ -28,7 +28,7 @@
                     ?>
             </div>
             <div id="point_rank">
-                <h4>포인트 랭킹(15장)</h4>
+                <h4>별 포인트 랭킹</h4>
                 <ul>
                     <!-- 포인트 랭킹 표시하기 -->
                     <?php
