@@ -33,7 +33,7 @@
 		</div>
 		<div id="board_box">
 			<h3 id="board_title">
-				게시판 > 글 쓰기
+				게시판 > 소원 쓰기
 			</h3>
 			<form name="board_form" method="post" action="board_insert.php" enctype="multipart/form-data">
 				<ul id="board_form">
