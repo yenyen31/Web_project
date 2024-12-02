@@ -1,22 +1,30 @@
 <div id="main_content">
     <div id="latest">
         <h4>최근 소원 목록</h4>
+        <!-- 검색 폼 추가 -->
+        <form method="get" action="main.php" style="margin-bottom: 10px;">
+            <input type="text" name="search" placeholder="검색어를 입력하세요" value="<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>">
+            <button type="submit">검색</button>
+        </form>
         <ul>
-            <!-- 최근 게시 글 불러오기 -->
             <?php
             $con = mysqli_connect("localhost", "user1", "12345", "sample");
-            $sql = "SELECT * FROM board ORDER BY num DESC LIMIT 5";
+
+            // 검색 조건 처리
+            $search = isset($_GET['search']) ? mysqli_real_escape_string($con, $_GET['search']) : '';
+            $search_query = $search ? "WHERE subject LIKE '%$search%' OR content LIKE '%$search%' OR name LIKE '%$search%'" : '';
+            $sql = "SELECT * FROM board $search_query ORDER BY num DESC LIMIT 5";
             $result = mysqli_query($con, $sql);
 
-            if (!$result)
-                echo "게시판 DB 테이블(board)이 생성 전이거나 아직 게시글이 없습니다!";
-            else {
+            if (mysqli_num_rows($result) == 0) {
+                echo "<li>검색 결과가 없습니다.</li>";
+            } else {
                 while ($row = mysqli_fetch_array($result)) {
                     $regist_day = substr($row["regist_day"], 0, 10);
             ?>
                     <li>
-                        <span><?= $row["subject"] ?></span>
-                        <span><?= $row["name"] ?></span>
+                        <span><?= htmlspecialchars($row["subject"]) ?></span>
+                        <span><?= htmlspecialchars($row["name"]) ?></span>
                         <span><?= $regist_day ?></span>
                     </li>
             <?php
@@ -28,15 +36,14 @@
     <div id="point_rank">
         <h4>별 포인트 & 회원 등급</h4>
         <ul>
-            <!-- 포인트 랭킹과 회원 등급 표시 -->
             <?php
             $rank = 1;
             $sql = "SELECT * FROM members ORDER BY point DESC LIMIT 5";
             $result = mysqli_query($con, $sql);
 
-            if (!$result)
-                echo "회원 DB 테이블(members)이 생성 전이거나 아직 가입된 회원이 없습니다!";
-            else {
+            if (mysqli_num_rows($result) == 0) {
+                echo "<li>회원이 없습니다.</li>";
+            } else {
                 while ($row = mysqli_fetch_array($result)) {
                     $name  = $row["name"];
                     $id    = $row["id"];
@@ -47,15 +54,15 @@
 
                     // 회원 등급 계산
                     if ($point >= 300) $grade = "Express";
-                    elseif ($point >= 200) $grade = "priority"; # 2번째 회원 단계
-                    elseif ($point >= 100) $grade = "standard"; # 3번째 회원 단계
-                    else $grade = "일반";
+                    elseif ($point >= 200) $grade = "second-class";
+                    elseif ($point >= 100) $grade = "priority";
+                    else $grade = "standard";
             ?>
                     <li>
                         <span><?= $rank ?></span>
                         <span><?= $name ?></span>
                         <span><?= $id ?></span>
-                        <span><?= $point ?>점 (<?= $grade ?>)</span> <!-- 등급 표시 -->
+                        <span><?= $point ?>점 (<?= $grade ?>)</span>
                     </li>
             <?php
                     $rank++;
