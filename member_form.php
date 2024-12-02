@@ -1,4 +1,3 @@
-<!-- 회원가입 -->
 <!DOCTYPE html>
 <html>
 
@@ -9,69 +8,47 @@
     <link rel="stylesheet" type="text/css" href="./css/member.css">
     <script>
         function check_input() {
-            if (!document.member_form.id.value) {
-                alert("아이디를 입력하세요!");
+            const id = document.member_form.id.value;
+            const pass = document.member_form.pass.value;
+            const passConfirm = document.member_form.pass_confirm.value;
+            const name = document.member_form.name.value;
+            const email1 = document.member_form.email1.value;
+            const email2 = document.member_form.email2.value;
+
+            if (!id || id.length < 5 || id.length > 15) {
+                alert("아이디는 5~15자리로 입력해주세요.");
                 document.member_form.id.focus();
-                return;
+                return false;
             }
 
-            if (!document.member_form.pass.value) {
-                alert("비밀번호를 입력하세요!");
+            const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            if (!passwordRegex.test(pass)) {
+                alert("비밀번호는 8자리 이상, 1개 이상의 대문자, 숫자, 특수문자를 포함해야 합니다.");
                 document.member_form.pass.focus();
-                return;
+                return false;
             }
 
-
-            if (!document.member_form.pass_confirm.value) {
-                alert("비밀번호확인을 입력하세요!");
-                document.member_form.pass_confirm.focus();
-                return;
+            if (pass !== passConfirm) {
+                alert("비밀번호가 일치하지 않습니다.");
+                document.member_form.pass.focus();
+                return false;
             }
 
-            if (!document.member_form.name.value) {
-                alert("이름을 입력하세요!");
+            const nameRegex = /^[a-zA-Z가-힣]{2,}$/;
+            if (!nameRegex.test(name)) {
+                alert("이름은 2글자 이상이어야 합니다.");
                 document.member_form.name.focus();
-                return;
+                return false;
             }
 
-            if (!document.member_form.email1.value) {
-                alert("이메일 주소를 입력하세요!");
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(`${email1}@${email2}`)) {
+                alert("유효한 이메일 형식이 아닙니다.");
                 document.member_form.email1.focus();
-                return;
+                return false;
             }
 
-            if (!document.member_form.email2.value) {
-                alert("이메일 주소를 입력하세요!");
-                document.member_form.email2.focus();
-                return;
-            }
-
-            if (document.member_form.pass.value !=
-                document.member_form.pass_confirm.value) {
-                alert("비밀번호가 일치하지 않습니다.\n다시 입력해 주세요!");
-                document.member_form.pass.focus();
-                document.member_form.pass.select();
-                return;
-            }
-
-            document.member_form.submit();
-        }
-
-        function reset_form() {
-            document.member_form.id.value = "";
-            document.member_form.pass.value = "";
-            document.member_form.pass_confirm.value = "";
-            document.member_form.name.value = "";
-            document.member_form.email1.value = "";
-            document.member_form.email2.value = "";
-            document.member_form.id.focus();
-            return;
-        }
-
-        function check_id() {
-            window.open("member_check_id.php?id=" + document.member_form.id.value,
-                "IDcheck",
-                "left=700,top=300,width=350,height=200,scrollbars=no,resizable=yes");
+            return true;
         }
     </script>
 </head>
@@ -86,57 +63,53 @@
         </div>
         <div id="main_content">
             <div id="join_box">
-                <form name="member_form" method="post" action="member_insert.php">
+                <form name="member_form" method="post" action="member_insert.php" enctype="multipart/form-data" onsubmit="return check_input();">
                     <h2>회원 가입</h2>
                     <div class="form id">
                         <div class="col1">아이디</div>
                         <div class="col2">
                             <input type="text" name="id">
                         </div>
-                        <div class="col3">
-                            <a href="#"><img src="./img/check_id.gif"
-                                    onclick="check_id()"></a>
-                        </div>
                     </div>
                     <div class="clear"></div>
-
                     <div class="form">
                         <div class="col1">비밀번호</div>
                         <div class="col2">
                             <input type="password" name="pass">
                         </div>
                     </div>
-                    <div class="clear"></div>
                     <div class="form">
                         <div class="col1">비밀번호 확인</div>
                         <div class="col2">
                             <input type="password" name="pass_confirm">
                         </div>
                     </div>
-                    <div class="clear"></div>
                     <div class="form">
                         <div class="col1">이름</div>
                         <div class="col2">
                             <input type="text" name="name">
                         </div>
                     </div>
-                    <div class="clear"></div>
                     <div class="form email">
                         <div class="col1">이메일</div>
                         <div class="col2">
                             <input type="text" name="email1">@<input type="text" name="email2">
                         </div>
                     </div>
-                    <div class="clear"></div>
-                    <div class="bottom_line"> </div>
+                    <div class="form">
+                        <div class="col1">프로필 사진</div>
+                        <div class="col2">
+                            <input type="file" name="profile_picture" accept="image/*">
+                        </div>
+                    </div>
+                    <div class="bottom_line"></div>
                     <div class="buttons">
-                        <img style="cursor:pointer" src="./img/button_save.gif" onclick="check_input()">&nbsp;
-                        <img id="reset_button" style="cursor:pointer" src="./img/button_reset.gif"
-                            onclick="reset_form()">
+                        <input type="submit" value="가입하기">
+                        <input type="reset" value="초기화">
                     </div>
                 </form>
-            </div> <!-- join_box -->
-        </div> <!-- main_content -->
+            </div>
+        </div>
     </section>
     <footer>
         <?php include "footer.php"; ?>
