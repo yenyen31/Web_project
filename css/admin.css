@@ -28,3 +28,16 @@
 #board_list li { padding: 10px 0; border-bottom: solid 1px #dddddd; }
 #board_list span { display: inline-block; text-align: center; }
 #board_list button { margin: 20px 0 0 20px; padding: 5px 10px;}
+
+/* 회원 별 배경 색 */
+.admin {
+  background-color: #D4DFE6; /* 관리자 */
+}
+
+.vip {
+  background-color: #CADBE9; /* 우수 회원 */
+}
+
+.normal {
+  background-color: #6AAFE6; /* 일반 회원 */
+}
