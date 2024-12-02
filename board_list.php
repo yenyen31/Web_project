@@ -20,6 +20,13 @@
 			<h3>
 				소원 게시판 > 소원 목록 보기
 			</h3>
+
+			<!-- 검색 폼 추가 -->
+			<form method="get" action="board_list.php" style="margin-bottom: 20px;">
+				<input type="text" name="search" placeholder="검색어를 입력하세요" value="<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>">
+				<button type="submit">검색</button>
+			</form>
+
 			<ul id="board_list">
 				<li>
 					<span class="col1">번호</span>
@@ -29,90 +36,94 @@
 					<span class="col5">등록일</span>
 					<span class="col6">조회</span>
 				</li>
+
 				<?php
-				if (isset($_GET["page"]))
-					$page = $_GET["page"];
-				else
-					$page = 1;
-
 				$con = mysqli_connect("localhost", "user1", "12345", "sample");
-				$sql = "select * from board order by num desc";
+
+				// 검색 조건 처리
+				$search = isset($_GET['search']) ? mysqli_real_escape_string($con, $_GET['search']) : '';
+				$search_query = $search ? "WHERE subject LIKE '%$search%' OR content LIKE '%$search%' OR name LIKE '%$search%'" : '';
+
+				// 게시글 총 개수 계산
+				$sql = "SELECT COUNT(*) AS total FROM board $search_query";
 				$result = mysqli_query($con, $sql);
-				$total_record = mysqli_num_rows($result); // 전체 글 수
+				$row = mysqli_fetch_array($result);
+				$total_record = $row['total'];
 
-				$scale = 10;
-
-				// 전체 페이지 수($total_page) 계산 
-				if ($total_record % $scale == 0)
-					$total_page = floor($total_record / $scale);
-				else
-					$total_page = floor($total_record / $scale) + 1;
-
-				// 표시할 페이지($page)에 따라 $start 계산  
+				// 페이지 계산
+				$scale = 10; // 페이지당 글 수
+				$total_page = ($total_record % $scale == 0) ? ($total_record / $scale) : (floor($total_record / $scale) + 1);
+				$page = isset($_GET["page"]) ? $_GET["page"] : 1;
 				$start = ($page - 1) * $scale;
 
-				$number = $total_record - $start;
+				// 게시글 가져오기
+				$sql = "SELECT * FROM board $search_query ORDER BY num DESC LIMIT $start, $scale";
+				$result = mysqli_query($con, $sql);
 
-				for ($i = $start; $i < $start + $scale && $i < $total_record; $i++) {
-					mysqli_data_seek($result, $i);
-					// 가져올 레코드로 위치(포인터) 이동
-					$row = mysqli_fetch_array($result);
-					// 하나의 레코드 가져오기
-					$num         = $row["num"];
-					$id          = $row["id"];
-					$name        = $row["name"];
-					$subject     = $row["subject"];
-					$regist_day  = $row["regist_day"];
-					$hit         = $row["hit"];
-					if ($row["file_name"])
-						$file_image = "<img src='./img/file.gif'>";
-					else
-						$file_image = " ";
+				if ($total_record == 0) {
+					echo "<li>검색 결과가 없습니다.</li>";
+				} else {
+					$number = $total_record - $start;
+
+					while ($row = mysqli_fetch_array($result)) {
+						$num = $row["num"];
+						$id = $row["id"];
+						$name = $row["name"];
+						$subject = $row["subject"];
+						$regist_day = $row["regist_day"];
+						$hit = $row["hit"];
+						$file_image = $row["file_name"] ? "<img src='./img/file.gif'>" : " ";
 				?>
-					<li>
-						<span class="col1"><?= $number ?></span>
-						<span class="col2"><a href="board_view.php?num=<?= $num ?>&page=<?= $page ?>"><?= $subject ?></a></span>
-						<span class="col3"><?= $name ?></span>
-						<span class="col4"><?= $file_image ?></span>
-						<span class="col5"><?= $regist_day ?></span>
-						<span class="col6"><?= $hit ?></span>
-					</li>
+						<li>
+							<span class="col1"><?= $number ?></span>
+							<span class="col2"><a href="board_view.php?num=<?= $num ?>&page=<?= $page ?>"><?= htmlspecialchars($subject) ?></a></span>
+							<span class="col3"><?= htmlspecialchars($name) ?></span>
+							<span class="col4"><?= $file_image ?></span>
+							<span class="col5"><?= $regist_day ?></span>
+							<span class="col6"><?= $hit ?></span>
+						</li>
 				<?php
-					$number--;
-				}
-				mysqli_close($con);
-
-				?>
-			</ul>
-			<ul id="page_num">
-				<?php
-				if ($total_page >= 2 && $page >= 2) {
-					$new_page = $page - 1;
-					echo "<li><a href='board_list.php?page=$new_page'>◀ 이전</a> </li>";
-				} else
-					echo "<li>&nbsp;</li>";
-
-				// 게시판 목록 하단에 페이지 링크 번호 출력
-				for ($i = 1; $i <= $total_page; $i++) {
-					if ($page == $i)     // 현재 페이지 번호 링크 안함
-					{
-						echo "<li><b> $i </b></li>";
-					} else {
-						echo "<li><a href='board_list.php?page=$i'> $i </a><li>";
+						$number--;
 					}
 				}
-				if ($total_page >= 2 && $page != $total_page) {
-					$new_page = $page + 1;
-					echo "<li> <a href='board_list.php?page=$new_page'>다음 ▶</a> </li>";
-				} else
-					echo "<li>&nbsp;</li>";
+				mysqli_close($con);
 				?>
-			</ul> <!-- page -->
+			</ul>
+
+			<ul id="page_num">
+				<?php
+				// 이전 페이지
+				if ($page > 1) {
+					$new_page = $page - 1;
+					echo "<li><a href='board_list.php?page=$new_page&search=$search'>◀ 이전</a></li>";
+				} else {
+					echo "<li>&nbsp;</li>";
+				}
+
+				// 페이지 번호 출력
+				for ($i = 1; $i <= $total_page; $i++) {
+					if ($page == $i) {
+						echo "<li><b> $i </b></li>";
+					} else {
+						echo "<li><a href='board_list.php?page=$i&search=$search'> $i </a></li>";
+					}
+				}
+
+				// 다음 페이지
+				if ($page < $total_page) {
+					$new_page = $page + 1;
+					echo "<li><a href='board_list.php?page=$new_page&search=$search'>다음 ▶</a></li>";
+				} else {
+					echo "<li>&nbsp;</li>";
+				}
+				?>
+			</ul>
+
 			<ul class="buttons">
 				<li><button onclick="location.href='board_list.php'">목록</button></li>
 				<li>
 					<?php
-					if ($userid) {
+					if (isset($_SESSION["userid"])) {
 					?>
 						<button onclick="location.href='board_form.php'">소원 쓰기</button>
 					<?php
