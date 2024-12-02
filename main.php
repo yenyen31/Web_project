@@ -1,9 +1,9 @@
         <div id="main_img_bar">
-            <img src="./img/main_img.pngg">
+            <img src="./img/main_img.png">
         </div>
         <div id="main_content">
             <div id="latest">
-                <h4>최근 소원 목록</h4> <!-- 최근 게시 글-->
+                <h4>최근 소원 목록</h4> <!-- 최근 게시 글 -->
                 <ul>
                     <!-- 최근 게시 글 DB에서 불러오기 -->
                     <?php
