@@ -25,9 +25,41 @@
 #page_num li { display: inline; }
 /* 게시판 내용보기(board_view.php) */
 #board_box { width: 800px; margin: 0 auto; }
-#board_box .title { margin-top: 30px; padding: 10px; border-bottom: solid 2px #516e7f; font-size: 20px; }
+#board_box .title { margin-top: 30px; padding: 10px; border-bottom: solid 2px #aaaaaa; font-size: 20px; }
 #view_content li:nth-child(1) {	padding: 15px; border-bottom: solid 1px #aaaaaa; }
 #view_content .col2 { float: right; }
 #view_content li:nth-child(2) {	padding: 15px 15px 80px 15px; border-bottom: solid 1px #cccccc; }
 #view_content li:nth-child(3) button { padding: 5px 20px; margin: 15px 0 40px 720px; cursor: pointer; }
+
+/* 검색 관련 */
+/* 검색 폼 스타일 */
+form {
+  margin: 20px auto;
+  display: flex;
+  justify-content: center; /* 중앙 정렬 */
+  gap: 10px; /* 입력 필드와 버튼 간격 */
+}
+
+form input[type="text"] {
+  width: 300px; /* 입력 필드 너비 */
+  padding: 10px; /* 여백 추가 */
+  font-size: 16px; /* 폰트 크기 */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+form button {
+  padding: 10px 20px; /* 버튼 크기 키움 */
+  font-size: 16px;
+  background-color: #6AAFE6; /* 기본 배경색 */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* 부드러운 효과 */
+}
+
+form button:hover {
+  background-color: #549ACE; /* 호버 효과 */
+}
 
