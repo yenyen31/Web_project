@@ -47,6 +47,6 @@ else $userpoint = "";
         <li><a href="index.php">HOME</a></li> <!-- 홈 -->
         <li><a href="message_form.php">쪽지 보내기</a></li> <!-- 쪽지 만들기 -->
         <li><a href="board_form.php">소원 쓰기</a></li> <!-- 게시판 만들기 -->
-        <li><a href="index.php">사이트 완성하기</a></li> <!-- 사이트 완성하기 -->
+        <li><a href="index.php">소원 검색</a></li>
     </ul>
 </div>
