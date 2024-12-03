@@ -1,3 +1,6 @@
+<div id="main_img_bar">
+    <img src="./img/main_img.png" alt="메인 이미지">
+</div>
 <div id="main_content">
     <div id="latest">
         <h4>최근 소원 목록</h4>
@@ -17,7 +20,7 @@
             $result = mysqli_query($con, $sql);
 
             if (mysqli_num_rows($result) == 0) {
-                echo "<li>검색 결과가 없습니다.</li>";
+                # echo "<li>검색 결과가 없습니다.</li>";
             } else {
                 while ($row = mysqli_fetch_array($result)) {
                     $regist_day = substr($row["regist_day"], 0, 10);
