@@ -76,7 +76,7 @@
 							</span>
 						</li>
 					</ul>
-					<button type="button" onclick="check_input()">보내기</button>
+					<button type="button" onclick="check_input()" id="message_send_button">보내기</button>
 				</div>
 			</form>
 		</div> <!-- message_box -->

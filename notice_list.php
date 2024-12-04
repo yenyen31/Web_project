@@ -6,6 +6,7 @@
   <title>공지사항</title>
   <link rel="stylesheet" type="text/css" href="./css/common.css">
   <link rel="stylesheet" type="text/css" href="./css/board.css">
+  <link rel="stylesheet" type="text/css" href="./css/notice.css">
 </head>
 
 <body>
@@ -18,13 +19,13 @@
       <img src="./img/main_img.png" alt="메인 이미지">
     </div>
     <div id="board_box">
-      <h3>공지사항</h3>
+      <h3>공지사항📨</h3>
       <ul id="board_list">
         <li>
           <span class="col1">번호</span>
           <span class="col2">제목</span>
           <span class="col3">작성자</span>
-          <span class="col4">등록일</span>
+          <span class="col4" id="notice_register_day">등록일</span>
           <span class="col5">조회수</span>
         </li>
         <?php
