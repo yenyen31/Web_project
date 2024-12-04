@@ -89,6 +89,16 @@ form input[type="text"] {
   border-radius: 5px;
 }
 
+
+/* 완료, 목록 버튼 */
+/* 버튼 정렬 및 간격 */
+form button {
+  text-align: center; /* 버튼을 중앙 정렬 */
+  margin-top: 350px;   /* 위에서 간격 추가 */
+  margin-left: 5px;
+}
+
+
 form button {
   padding: 10px 20px; /* 버튼 크기 키움 */
   font-size: 16px;
