@@ -126,9 +126,9 @@
 					?>
 				</ul> <!-- page -->
 				<ul class="buttons">
-					<li><button onclick="location.href='message_box.php?mode=rv'">수신 쪽지함</button></li>
-					<li><button onclick="location.href='message_box.php?mode=send'">송신 쪽지함</button></li>
-					<li><button onclick="location.href='message_form.php'">쪽지 보내기</button></li>
+					<li><button onclick="location.href='message_box.php?mode=rv'" id="inbox_msg_button">수신 쪽지함</button></li>
+					<li><button onclick="location.href='message_box.php?mode=send'" id="sent_msg_button">송신 쪽지함</button></li>
+					<li><button onclick="location.href='message_form.php'" id="sent_final_msg_button">쪽지 보내기</button></li>
 				</ul>
 			</div> <!-- message_box -->
 	</section>

@@ -34,13 +34,39 @@
 #message .col4 { width: 150px; }
 #page_num {	text-align: center;	margin: 30px 0 }
 #page_num li { display: inline; }
-#message_box .top_buttons  { text-align: right; margin: 20px 0 20px 0; }
+#message_box .top_buttons  { text-align: right; margin: 20px 0 20px 0;}
 #message_box .top_buttons li { display: inline; margin-right: 20px; }
 #message_box .top_buttons a:link { text-decoration: underline; color: #6AAFE6; }
 #message_box .top_buttons a:visited { text-decoration: underline; color: #6AAFE6; }
 #message_box .buttons { text-align: right; margin: 20px 0 40px 0; }
 #message_box .buttons li { display: inline; }
 #message_box .buttons button { padding: 5px 10px; cursor: pointer; }
+
+#inbox_msg_button { /* 수신 쪽지함 버튼 */
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #6AAFE6; 
+  color: white;
+  border: none;
+}
+
+#sent_msg_button { /* 송신 쪽지함 버튼 */
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #6AAFE6; 
+  color: white;
+  border: none;
+}
+
+#sent_final_msg_button{ /* 쪽지 보내기 버튼 */
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #6AAFE6; 
+  color: white;
+  border: none;
+}
+
+
 /* 쪽지함 보기(view_msg.php) */
 #message_box { width: 800px; margin: 0 auto; }
 #message_box .title { margin-top: 30px; padding: 10px; border-bottom: solid 2px #6AAFE6; font-size: 20px; }
