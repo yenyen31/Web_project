@@ -10,7 +10,19 @@
 #write_msg #text_area {	position: relative;	height: 158px; }
 #write_msg #text_area .col1 { position: absolute; top: 10px; }
 #write_msg #text_area .col2 { position: absolute; left: 166px; }
-#write_msg button {	margin: 15px 0 30px 580px;	padding: 5px 23px; cursor: pointer; }
+
+/* 메시지 보내기 버튼 */
+#write_msg button {	
+  margin: 15px 0 30px 580px;	
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #6AAFE6; 
+  color: white;
+  border: none; 
+  cursor: pointer;  
+}
+
+
 /* 수신/송신 쪽지함(message_form.php) */
 #message li { padding: 10px; border-bottom: solid 1px #dddddd; }
 #message li:nth-child(1) { font-weight: bold; }
