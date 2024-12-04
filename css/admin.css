@@ -31,13 +31,13 @@
 
 /* 회원 별 배경 색 */
 .admin {
-  background-color: #D4DFE6; /* 관리자 */
+  background-color: #0D0D0D; /* 관리자 */
 }
 
 .vip {
-  background-color: #CADBE9; /* 우수 회원 */
+  background-color: #A3BFD9; /* 우수 회원 */
 }
 
 .normal {
-  background-color: #6AAFE6; /* 일반 회원 */
+  background-color: #508BBF; /* 일반 회원 */
 }

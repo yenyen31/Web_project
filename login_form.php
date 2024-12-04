@@ -29,7 +29,7 @@
 							<li><input type="password" id="pass" name="pass" placeholder="비밀번호"></li> <!-- pass -->
 						</ul>
 						<div id="login_btn">
-							<a href="#"><img src="./img/login.png" onclick="check_input()"></a>
+							<a href="#" onclick="check_input()">로그인</a>
 						</div>
 					</form>
 				</div> <!-- login_form -->
