@@ -61,7 +61,7 @@
 				$result = mysqli_query($con, $sql);
 
 				if ($total_record == 0) {
-					# echo "<li>검색 결과가 없습니다.</li>";
+					echo "<li>검색 결과가 없습니다.</li>";
 				} else {
 					$number = $total_record - $start;
 

@@ -33,7 +33,7 @@
 		</div>
 		<div id="board_box">
 			<h3 id="board_title">
-				게시판 > 소원 쓰기
+				소원 게시판 > 소원 쓰기
 			</h3>
 			<form name="board_form" method="post" action="board_insert.php" enctype="multipart/form-data">
 				<ul id="board_form">
@@ -52,7 +52,7 @@
 						</span>
 					</li>
 					<li>
-						<span class="col1"> 첨부 파일</span>
+						<span class="col1">첨부 파일</span>
 						<span class="col2"><input type="file" name="upfile"></span>
 					</li>
 				</ul>
