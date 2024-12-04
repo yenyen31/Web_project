@@ -104,8 +104,8 @@
                     </div>
                     <div class="bottom_line"></div>
                     <div class="buttons">
-                        <input type="submit" value="가입하기">
-                        <input type="reset" value="초기화">
+                        <button type="button" onclick="check_input()" id="join_box_button">가입하기</button>
+                        <button type="button" onclick="reset_form()" id="reset_button">초기화</button>
                     </div>
                 </form>
             </div>

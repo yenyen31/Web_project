@@ -14,3 +14,17 @@
 #join_box input[name=email2] { width: 275px; }
 #join_box .bottom_line { margin-top: 10px;	border-bottom: solid 1px #cccccc; }
 #join_box .buttons { text-align: right;	margin: 20px 100px 0 0; }
+
+#join_box_button { /* 가입하기 버튼 */
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #6AAFE6; 
+  border: none;
+}
+
+#reset_button { /* 초기화 버튼 */
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #6AAFE6; 
+  border: none;
+}
