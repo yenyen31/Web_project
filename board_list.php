@@ -120,12 +120,12 @@
 			</ul>
 
 			<ul class="buttons">
-				<li><button onclick="location.href='board_list.php'">목록</button></li>
+				<li><button onclick="location.href='board_list.php'" id="board_list_button">목록</button></li>
 				<li>
 					<?php
 					if (isset($_SESSION["userid"])) {
 					?>
-						<button onclick="location.href='board_form.php'">소원 쓰기</button>
+						<button onclick="location.href='board_form.php'" id="write_wish_button">소원 쓰기</button>
 					<?php
 					} else {
 					?>
