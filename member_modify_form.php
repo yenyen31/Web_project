@@ -8,13 +8,12 @@
 	<link rel="stylesheet" type="text/css" href="./css/member.css">
 	<script type="text/javascript" src="./js/member_modify.js"></script>
 	<style>
+		/* 수정 완료 버튼 */
 		#join_box_button {
 			padding: 10px 20px;
 			border-radius: 5px;
 			background-color: #6AAFE6;
-			/* 버튼 배경색 */
 			color: white;
-			/* 텍스트 색상 */
 			border: none;
 			font-size: 16px;
 			cursor: pointer;
@@ -22,16 +21,14 @@
 
 		#join_box_button:hover {
 			background-color: #5a9ed1;
-			/* 호버 시 배경색 */
 		}
 
+		/* 초기화 버튼 */
 		#reset_button {
 			padding: 10px 20px;
 			border-radius: 5px;
 			background-color: #ccc;
-			/* 초기화 버튼 배경색 */
 			color: black;
-			/* 텍스트 색상 */
 			border: none;
 			font-size: 16px;
 			cursor: pointer;
@@ -39,7 +36,6 @@
 
 		#reset_button:hover {
 			background-color: #bbb;
-			/* 초기화 버튼 호버 색상 */
 		}
 	</style>
 </head>

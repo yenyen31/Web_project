@@ -10,13 +10,13 @@
 
 <body>
 	<header>
-		<?php include "header2.php"; ?>
+		<?php include "header2.php"; ?> <!-- 헤더2 -->
 	</header>
 	<section>
-		<?php include "main2.php"; ?>
+		<?php include "main2.php"; ?> <!-- 메인2 -->
 	</section>
 	<footer>
-		<?php include "footer.php"; ?>
+		<?php include "footer.php"; ?> <!-- footer -->
 	</footer>
 </body>
 

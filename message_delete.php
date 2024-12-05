@@ -8,7 +8,8 @@ $con = mysqli_connect("localhost", "user1", "12345", "sample");
 $sql = "delete from message where num=$num";
 mysqli_query($con, $sql);
 
-mysqli_close($con);                // DB 연결 끊기
+// DB 연결 끊기
+mysqli_close($con);
 
 if ($mode == "send")
 	$url = "message_box.php?mode=send";

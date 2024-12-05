@@ -9,7 +9,7 @@ $subject = htmlspecialchars($subject, ENT_QUOTES);
 $content = htmlspecialchars($content, ENT_QUOTES);
 $regist_day = date("Y-m-d (H:i)");  // 현재의 '년-월-일-시-분'을 저장
 
-if (!$send_id) {
+if (!$send_id) { // 로그인 안 되어있는 경우
 	echo ("
 			<script>
 			alert('로그인 후 이용해 주세요! ');
@@ -28,8 +28,8 @@ if ($num_record) {
 	$sql = "insert into message (send_id, rv_id, subject, content,  regist_day) ";
 	$sql .= "values('$send_id', '$rv_id', '$subject', '$content', '$regist_day')";
 	mysqli_query($con, $sql);  // $sql 에 저장된 명령 실행
-} else {
-	echo ("
+} else { // 수신 아이디 입력 오류난 경우
+	echo (" 
 			<script>
 			alert('수신 아이디가 잘못 되었습니다!');
 			history.go(-1)

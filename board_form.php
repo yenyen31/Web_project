@@ -8,12 +8,12 @@
 	<link rel="stylesheet" type="text/css" href="./css/board.css">
 	<script>
 		function check_input() {
-			if (!document.board_form.subject.value) {
+			if (!document.board_form.subject.value) { // 제목 콘텐츠 비어있는 경우
 				alert("제목을 입력하세요!");
 				document.board_form.subject.focus();
 				return;
 			}
-			if (!document.board_form.content.value) {
+			if (!document.board_form.content.value) { // 내용 콘텐츠 비어있는 경우
 				alert("내용을 입력하세요!");
 				document.board_form.content.focus();
 				return;

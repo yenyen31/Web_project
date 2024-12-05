@@ -22,7 +22,6 @@
   cursor: pointer;  
 }
 
-
 /* 수신/송신 쪽지함(message_form.php) */
 #message li { padding: 10px; border-bottom: solid 1px #dddddd; }
 #message li:nth-child(1) { font-weight: bold; }

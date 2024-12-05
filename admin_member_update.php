@@ -3,6 +3,7 @@ session_start();
 if (isset($_SESSION["userlevel"])) $userlevel = $_SESSION["userlevel"];
 else $userlevel = "";
 
+# 관리자가 아닌 경우 경고 메시지 출력
 if ($userlevel != 1) {
     echo ("
             <script>
@@ -13,6 +14,7 @@ if ($userlevel != 1) {
     exit;
 }
 
+# num, 회원 등급, 포인트
 $num   = $_GET["num"];
 $level = $_POST["level"];
 $point = $_POST["point"];

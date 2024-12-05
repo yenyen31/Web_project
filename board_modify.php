@@ -1,4 +1,5 @@
 <?php
+// 게시판 수정
 $num = $_GET["num"];
 $page = $_GET["page"];
 

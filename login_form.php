@@ -6,7 +6,7 @@
 	<title>소원 우체국 Wish Post Office</title>
 	<link rel="stylesheet" type="text/css" href="./css/common.css">
 	<link rel="stylesheet" type="text/css" href="./css/login.css">
-	<script type="text/javascript" src="./js/login.js"></script>
+	<script type="text/javascript" src="./js/login.js"></script> <!-- login.js -->
 </head>
 
 <body>

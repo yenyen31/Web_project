@@ -8,10 +8,13 @@
 - `logout_process.php`: 실제 로그아웃 처리 역할.
 
 */
+
+// 로그아웃
 session_start();
 session_unset();
 session_destroy();
 
+// 성공적으로 로그아웃 했다는 메시지 팝업
 echo "<script>
     alert('로그아웃 되었습니다.');
     location.href = 'index.php';

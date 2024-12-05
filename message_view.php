@@ -44,9 +44,10 @@
 				$record = mysqli_fetch_array($result2);
 				$msg_name = $record["name"];
 
-				if ($mode == "send")
+				// 쪽지 내용보기
+				if ($mode == "send") // 송신 쪽지함
 					echo "송신 쪽지함 > 내용보기";
-				else
+				else // 수신 쪽지함
 					echo "수신 쪽지함 > 내용보기";
 				?>
 			</h3>

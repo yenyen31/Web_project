@@ -19,9 +19,9 @@
             $sql = "SELECT * FROM board $search_query ORDER BY num DESC LIMIT 5";
             $result = mysqli_query($con, $sql);
 
-            if (mysqli_num_rows($result) == 0) {
-                # echo "<li>검색 결과가 없습니다.</li>";
-            } else {
+            if (mysqli_num_rows($result) == 0) { # 검색 결과가 없는 경우
+                # echo "<li>검색 결과가 없습니다.</li>"; # 검색 결과 없다는 메시지 출력 
+            } else { # 검색 결과가 있는 경우
                 while ($row = mysqli_fetch_array($result)) {
                     $regist_day = substr($row["regist_day"], 0, 10);
             ?>
@@ -44,7 +44,7 @@
             $sql = "SELECT * FROM members ORDER BY point DESC LIMIT 5";
             $result = mysqli_query($con, $sql);
 
-            if (mysqli_num_rows($result) == 0) {
+            if (mysqli_num_rows($result) == 0) { # 회원이 없는 경우
                 echo "<li>회원이 없습니다.</li>";
             } else {
                 while ($row = mysqli_fetch_array($result)) {

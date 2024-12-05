@@ -8,7 +8,7 @@ $profile_picture = $_FILES["profile_picture"];
 
 $email = $email1 . "@" . $email2;
 
-// 비밀번호 검증
+// 비밀번호 유효성 검사
 if (!preg_match('/^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/', $pass)) {
 	echo "<script>alert('비밀번호 조건을 만족하지 않습니다.'); history.go(-1);</script>";
 	exit;

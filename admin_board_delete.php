@@ -1,8 +1,10 @@
 <?php
 session_start();
+
 if (isset($_SESSION["userlevel"])) $userlevel = $_SESSION["userlevel"];
 else $userlevel = "";
 
+# 관리자가 아닌 경우 경고 메시지 출력, 뒤로 가기
 if ($userlevel != 1) {
     echo ("
                     <script>
@@ -13,9 +15,10 @@ if ($userlevel != 1) {
     exit;
 }
 
+# 게시물 삭제하기
 if (isset($_POST["item"]))
     $num_item = count($_POST["item"]);
-else
+else # 삭제할 게시물을 선택하지 않은 경우
     echo ("
                     <script>
                     alert('삭제할 게시글을 선택해주세요!');
@@ -25,6 +28,7 @@ else
 
 $con = mysqli_connect("localhost", "user1", "12345", "sample");
 
+# 게시물 삭제하기
 for ($i = 0; $i < count($_POST["item"]); $i++) {
     $num = $_POST["item"][$i];
 

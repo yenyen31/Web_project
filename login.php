@@ -8,7 +8,7 @@ $result = mysqli_query($con, $sql);
 
 $num_match = mysqli_num_rows($result);
 
-if (!$num_match) {
+if (!$num_match) { // 아이디 등록되어 있지 않는 경우
   echo ("
            <script>
              window.alert('등록되지 않은 아이디입니다!')
@@ -21,7 +21,7 @@ if (!$num_match) {
 
   mysqli_close($con);
 
-  if ($pass != $db_pass) {
+  if ($pass != $db_pass) { // 비밀번호가 일치하지 않는 경우
 
     echo ("
               <script>
@@ -31,6 +31,7 @@ if (!$num_match) {
            ");
     exit;
   } else {
+
     session_start();
     $_SESSION["userid"] = $row["id"];
     $_SESSION["username"] = $row["name"];

@@ -1,5 +1,7 @@
 <?php
+// 헤더
 session_start();
+
 if (isset($_SESSION["userid"])) $userid = $_SESSION["userid"];
 else $userid = "";
 if (isset($_SESSION["username"])) $username = $_SESSION["username"];
@@ -9,6 +11,7 @@ else $userlevel = "";
 if (isset($_SESSION["userpoint"])) $userpoint = $_SESSION["userpoint"];
 else $userpoint = "";
 ?>
+
 <div id="top">
     <h3>
         <a href="index.php">소원 우체국 Wish Post Office</a>

@@ -19,9 +19,11 @@
       <img src="./img/main_img.png" alt="메인 이미지">
     </div>
     <div id="board_box">
+      <!-- 추가 기능 구현: 공지사항 -->
       <h3>공지사항📨</h3>
       <ul id="board_list">
         <li>
+          <!-- 공지사항 목록 보기-->
           <span class="col1">번호</span>
           <span class="col2">제목</span>
           <span class="col3">작성자</span>
@@ -29,6 +31,7 @@
           <span class="col5">조회수</span>
         </li>
         <?php
+        // db 연결
         $con = mysqli_connect("localhost", "user1", "12345", "sample");
 
         $sql = "SELECT * FROM notice ORDER BY num DESC";

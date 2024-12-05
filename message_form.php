@@ -33,7 +33,7 @@
 		<?php include "header.php"; ?>
 	</header>
 	<?php
-	if (!$userid) {
+	if (!$userid) { // 로그인 안 되어있는 경우
 		echo ("<script>
 				alert('로그인 후 이용해주세요!');
 				history.go(-1);

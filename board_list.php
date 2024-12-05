@@ -40,6 +40,7 @@
 				<?php
 				$con = mysqli_connect("localhost", "user1", "12345", "sample");
 
+				// 추가 기능 구현: 게시판 검색 기능
 				// 검색 조건 처리
 				$search = isset($_GET['search']) ? mysqli_real_escape_string($con, $_GET['search']) : '';
 				$search_query = $search ? "WHERE subject LIKE '%$search%' OR content LIKE '%$search%' OR name LIKE '%$search%'" : '';
@@ -60,9 +61,10 @@
 				$sql = "SELECT * FROM board $search_query ORDER BY num DESC LIMIT $start, $scale";
 				$result = mysqli_query($con, $sql);
 
+				// 검색 결과가 없는 경우
 				if ($total_record == 0) {
 					echo "<li>검색 결과가 없습니다.</li>";
-				} else {
+				} else { // 검색 결과가 있는 경우
 					$number = $total_record - $start;
 
 					while ($row = mysqli_fetch_array($result)) {

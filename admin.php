@@ -7,6 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="./css/common.css">
 	<link rel="stylesheet" type="text/css" href="./css/admin.css">
 	<style>
+		/* 화원 등급 별 색상 설정 */
 		.admin {
 			background-color: #D4DFE6;
 		}

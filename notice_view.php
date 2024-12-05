@@ -37,6 +37,7 @@
       $regist_day = $row["regist_day"];
       $content = $row["content"];
       ?>
+      <!-- 공지사항 내용 보기 -->
       <h3><?= $title ?></h3>
       <ul id="view_content">
         <li>

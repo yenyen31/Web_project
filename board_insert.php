@@ -1,12 +1,15 @@
 <meta charset="utf-8">
 <?php
+// 게시글 추가 
+
 session_start();
+
 if (isset($_SESSION["userid"])) $userid = $_SESSION["userid"];
 else $userid = "";
 if (isset($_SESSION["username"])) $username = $_SESSION["username"];
 else $username = "";
 
-if (!$userid) {
+if (!$userid) { // 로그인 되어 있지 않은 경우
 	echo ("
                     <script>
                     alert('소원 쓰기는 로그인 후 이용해 주세요!');
@@ -69,6 +72,7 @@ if ($upfile_name && !$upfile_error) {
 
 $con = mysqli_connect("localhost", "user1", "12345", "sample");
 
+// sql 처리
 $sql = "insert into board (id, name, subject, content, regist_day, hit,  file_name, file_type, file_copied) ";
 $sql .= "values('$userid', '$username', '$subject', '$content', '$regist_day', 0, ";
 $sql .= "'$upfile_name', '$upfile_type', '$copied_file_name')";
